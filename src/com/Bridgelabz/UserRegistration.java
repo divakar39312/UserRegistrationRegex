@@ -5,10 +5,8 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
-
 	static Scanner sc = new Scanner(System.in);
-	
-	public static void validFirstName() {
+		public static void validFirstName() {
 	
 		System.out.println("enter your first name");
 		String firstName = sc.next();
@@ -32,7 +30,7 @@ public class UserRegistration {
 			System.err.println(lastName+" is an Invalid Last Name\n");
 	}
 	/*
-	 * UC3 check for  valid email
+	 * UC3 : as a user you need to enter valid email
 	 * e.g. abc.xyz@bl.co.in
 	 * email has 3 mandatory fields abc,bl,co and 2 optional in,xyz
 	 */
@@ -63,14 +61,14 @@ public class UserRegistration {
 	      }
 	}
 	/*
-	 *fined password rules
-	 * rule 1 : password must have minimum 8 characters
+	 * UC 6 : as a user need to follow pre-defined password rules
+	 * rule 1 : password must have 1 UpperCase character
 	 */
 	public static void validPassword()
 	{
 	     System.out.println("enter a password(min 8 characters): ");
 	      String password = sc.next();
-	      boolean result = Pattern.matches("^[[a-zA-Z0-9]*[@!#$^&*?]*[a-zA-Z0-9]]{8,}+$",password);  
+	      boolean result = Pattern.matches("^(?=.*[A-Z])([a-z0-9]*([@#$%^&?*])*).{8,}$",password);  
 	      if(result) {
 	         System.out.println("password is valid");
 	      } else {
@@ -81,10 +79,6 @@ public class UserRegistration {
 
 public static void main(String[] args) {
 	
-		validFirstName();
-		validLastName();
-		validMail();
-		validMobileNum();
 		validPassword();
 	}
 }
