@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
+
 		static Scanner sc = new Scanner(System.in);
-		// UC1 check for valid first name
-		public static void validFirstName() {
+				public static void validFirstName() {
 		
 			System.out.println("enter your first name");
 			String firstName = sc.next();
@@ -18,7 +18,7 @@ public class UserRegistration {
 				System.err.println(firstName+" is an Invalid First Name");
 	        System.out.println(" ");
 		}
-		//UC2 check for valid last name
+		
 		
 		public static void validLastName() {
 			
@@ -30,11 +30,28 @@ public class UserRegistration {
 			else
 				System.err.println(lastName+" is an Invalid Last Name\n");
 		}
+		/*
+		 * UC3 : as a user you need to enter valid email
+		 * e.g. abc.xyz@bl.co.in
+		 * email has 3 mandatory fields abc,bl,co and 2 optional in,xyz
+		 */
+		public static void validEMail()
+		{
+		     System.out.println("enter your mail: ");
+		      String mail = sc.next();
+		      boolean result = Pattern.matches("^[a-z]+[.][a-z]+[@][a-z]+[.][a-z]+[.][a-z]+$",mail);  
+		      if(result) {
+		         System.out.println("Email is  valid");
+		      } else {
+		         System.out.println("Email is not valid");
+		      }
 
+		}
 	public static void main(String[] args) {
-		System.out.println("welcome to user registration");	
+			
 			validFirstName();
 			validLastName();
+			validEMail();
 		}
 }
 
